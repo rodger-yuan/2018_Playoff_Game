@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-	var url = "http://stats.nba.com/stats/leaguegamelog?Counter=1000000&DateFrom=&DateTo=&Direction=ASC&LeagueID=00&PlayerOrTeam=P&Season=2017-18&SeasonType=Playoffs&Sorter=DATE&callback=?"
+	var url = "https://stats.nba.com/stats/leaguegamelog?Counter=1000000&DateFrom=&DateTo=&Direction=ASC&LeagueID=00&PlayerOrTeam=P&Season=2017-18&SeasonType=Playoffs&Sorter=DATE&callback=?"
 	var rodger_players = ["LeBron James", "Kevin Durant", "Joel Embiid", "Kevin Love", "DeMar DeRozan", "Donovan Mitchell", "CJ McCollum", "Jaylen Brown", "Paul George", "Giannis Antetokounmpo"]
 	var jimmy_players = ["James Harden", "Chris Paul", "Klay Thompson", "Stephen Curry", "Damian Lillard", "Eric Gordon", "Russell Westbrook", "Ben Simmons", "Kyle Lowry", "JJ Redick"]
 	class Player {
