@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>2018 Playoff Game</title> 
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Abel', sans-serif;
+            }
+            h2 {
+                font-size: 40px;
+                margin-top: 20px;
+                color: black;
+            }
+            h3 {
+                font-size: 20px;
+                margin-top: 20px;
+                width: 960px;
+                color: black;
+            }
+            .buttons {
+                margin: auto;
+                width: 960px;
+            }
+            .title {
+                margin: auto;
+                width: 960px;
+                display: flex;
+                justify-content: space-between;
+            }
+            .table {
+                margin: auto;
+                width: 960px;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            #table_score {
+                width: 24%;
+            }
+
+            #rt, #jt, #r_avg, #j_avg {
+                font-size: 18px;
+            }
+
+            table {
+                border-collapse: collapse;
+                table-layout: fixed;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+
+            th {
+                font-size: 18px;
+            }
+
+            button {
+                background-color: #4CAF50; /* Green */
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 20px;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="main.js"></script>
+    </head>
+    <body> 
+        <span class="title">
+            <h2>2018 Playoff Game</h2>
+            <h2><small>by <a href="https://github.com/rodger-yuan">rodger yuan</a> </small></h2>
+        </span>
+        <hr>
+        <div class="title">
+            <h3 id="totalsgame1"> Overview </h3>
+        </div>
+        <div class="table">
+            <table>
+              <tr>
+                <th width = "20%"></th>
+                <th>Games</th>
+                <th>Round 1</th>
+                <th>Round 2</th>
+                <th>Conference Finals</th>
+                <th>Finals</th>
+                <th>Total</th>
+              </tr>
+              <tr id="jtt"></tr>
+              <tr id="rtt"></tr>
+            </table>
+        </div>
+        <div>
+            <div class="title">
+                <h3 id = 'rodger'> Rodger </h3>
+            </div>
+            <div class="table">
+                <table id="rodger_total">
+                  <tr>
+                    <th width = "20%">Name</th>
+                    <th>Games</th>
+                    <th>Round 1</th>
+                    <th>Round 2</th>
+                    <th>Conference Finals</th>
+                    <th>Finals</th>
+                    <th>Total</th>
+                  </tr>
+                  <tr id="jt"></tr>
+                </table>
+            </div>
+            <div class="title">
+                <h3 id = 'jimmy'> Jimmy </h3>
+            </div>
+            <div class="table">
+                <table id = "jimmy_total">
+                  <tr>
+                    <th width = "20%">Name</th>
+                    <th>Games</th>
+                    <th>Round 1</th>
+                    <th>Round 2</th>
+                    <th>Conference Finals</th>
+                    <th>Finals</th>
+                    <th>Total</th>
+                  </tr>
+                  <tr id="rt"></tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
