@@ -39,7 +39,7 @@ $( document ).ready(function() {
 					this._round3points += points;
 					break;
 				case 4:
-					this._round3points += points;
+					this._round4points += points;
 					break;
 			}
 		}
