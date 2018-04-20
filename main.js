@@ -1,15 +1,20 @@
+function roundFromGameId(gameId) {
+	// determine the round from the gameID.
+	// assumes the round number is encoded in the third to last character in the gameID
+	// e.g. 0041700151 -> round 1
+	return parseInt(gameId.charAt(gameId.length - 3));
+}
+ 
+
 $( document ).ready(function() {
 	var url = "https://stats.nba.com/stats/leaguegamelog?Counter=1000000&DateFrom=&DateTo=&Direction=ASC&LeagueID=00&PlayerOrTeam=P&Season=2017-18&SeasonType=Playoffs&Sorter=DATE&callback=?"
+
 	var rodger_players = ["LeBron James", "Kevin Durant", "Joel Embiid", "Kevin Love", "DeMar DeRozan", "Donovan Mitchell", "CJ McCollum", "Jaylen Brown", "Paul George", "Giannis Antetokounmpo"]
 	var jimmy_players = ["James Harden", "Chris Paul", "Klay Thompson", "Stephen Curry", "Damian Lillard", "Eric Gordon", "Russell Westbrook", "Ben Simmons", "Kyle Lowry", "JJ Redick"]
 	class Player {
 		constructor(name) {
 			this._name = name;
 			this._totalgames = 0;
-			this._round1matchup = '';
-			this._round2matchup = '';
-			this._round3matchup = '';
-			this._round4matchup = '';
 			this._round1points = 0;
 			this._round2points = 0;
 			this._round3points = 0;
@@ -18,35 +23,24 @@ $( document ).ready(function() {
 		}
 
 		inputBoxScore(boxline) {
+			var points = boxline[28];
 			this._totalgames += 1;
-			this._totalpoints += boxline[28];
+			this._totalpoints += points;
 
-			if (this._round1matchup != boxline[8] && this._round2matchup != boxline[8] && this._round3matchup != boxline[8] && this._round4matchup != boxline[8]) { //set matchups
-				if (this._round1matchup == '') {
-					this._round1matchup = boxline[8];
-				}
-				else if (this._round2matchup == '') {
-					this._round2matchup = boxline[8];
-				}
-				else if (this._round3matchup == '') {
-					this._round3matchup = boxline[8];
-				}
-				else if (this._round4matchup == '') {
-					this._round4matchup = boxline[8];
-				}
-			}
-
-			if (this._round1matchup == boxline[8]) { //edit class properties
-				this._round1points += boxline[28];
-			}
-			else if (this._round2matchup == boxline[8]) {
-				this._round2points = boxline[28];
-			}
-			else if (this._round3matchup == boxline[8]) {
-				this._round3points = boxline[28];
-			}
-			else if (this._round4matchup == boxline[8]) {
-				this._round4points = boxline[28];
+			var round = roundFromGameId(boxline[6]);
+			switch(round) {
+				case 1:
+					this._round1points += points;
+					break;
+				case 2:
+					this._round2points += points;
+					break;
+				case 3:
+					this._round3points += points;
+					break;
+				case 4:
+					this._round3points += points;
+					break;
 			}
 		}
 	}
@@ -69,12 +63,13 @@ $( document ).ready(function() {
 	        jimmy_total[0] = "Jimmy Totals"
 
 	        for (var i = 0; i < rowSet.length; i++) { //input boxscores into players
-				if (rodger_players.indexOf(rowSet[i][2]) > -1) {
-					rodger_players_class[rowSet[i][2]].inputBoxScore(rowSet[i]);
-				}
-				if (jimmy_players.indexOf(rowSet[i][2]) > -1) {
-					jimmy_players_class[rowSet[i][2]].inputBoxScore(rowSet[i]);
-				}
+						if (rodger_players.indexOf(rowSet[i][2]) > -1) {
+							rodger_players_class[rowSet[i][2]].inputBoxScore(rowSet[i]);
+					}
+
+					if (jimmy_players.indexOf(rowSet[i][2]) > -1) {
+						jimmy_players_class[rowSet[i][2]].inputBoxScore(rowSet[i]);
+					}
 			}
 
 			console.log(jimmy_players_class)
