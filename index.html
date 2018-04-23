@@ -71,8 +71,12 @@
                 display: inline-block;
                 font-size: 20px;
             }
+
+            .rodger{background-color: #e5efff;} 
+            .jimmy{background-color: #e5ffe5;} 
         </style>
         <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="https://kryogenix.org/code/browser/sorttable/sorttable.js"></script>
         <script src="main.js"></script>
     </head>
     <body> 
@@ -94,6 +98,7 @@
                 <th>Conference Finals</th>
                 <th>Finals</th>
                 <th>Total</th>
+                <th>Average</th>
               </tr>
               <tr id="jtt"></tr>
               <tr id="rtt"></tr>
@@ -104,36 +109,65 @@
                 <h3 id = 'rodger'> Rodger </h3>
             </div>
             <div class="table">
-                <table id="rodger_total">
+                <table id="rodger_total" class="sortable">
                   <tr>
                     <th width = "20%">Name</th>
-                    <th>Games</th>
-                    <th>Round 1</th>
-                    <th>Round 2</th>
-                    <th>Conference Finals</th>
-                    <th>Finals</th>
-                    <th>Total</th>
+                    <th class="sorttable_numeric">Games</th>
+                    <th class="sorttable_numeric">Round 1</th>
+                    <th class="sorttable_numeric">Round 2</th>
+                    <th class="sorttable_numeric">Conference Finals</th>
+                    <th class="sorttable_numeric">Finals</th>
+                    <th class="sorttable_numeric">Total</th>
+                    <th class="sorttable_numeric">Average</th>
                   </tr>
                   <tr id="rt"></tr>
+                </table>
+            </div>
+            <div class="table">
+                <table id="rodger_total_last">
+                  <tr id="rtl">
+                      <td width = 20%>Rodger's Team</td>
+                  </tr>
                 </table>
             </div>
             <div class="title">
                 <h3 id = 'jimmy'> Jimmy </h3>
             </div>
             <div class="table">
-                <table id = "jimmy_total">
-                  <tr>
-                    <th width = "20%">Name</th>
-                    <th>Games</th>
-                    <th>Round 1</th>
-                    <th>Round 2</th>
-                    <th>Conference Finals</th>
-                    <th>Finals</th>
-                    <th>Total</th>
-                  </tr>
-                  <tr id="jt"></tr>
+                <table id = "jimmy_total" class="sortable">
+                    <tr>
+                        <th width = "20%">Name</th>
+                        <th class="sorttable_numeric">Games</th>
+                        <th class="sorttable_numeric">Round 1</th>
+                        <th class="sorttable_numeric">Round 2</th>
+                        <th class="sorttable_numeric">Conference Finals</th>
+                        <th class="sorttable_numeric">Finals</th>
+                        <th class="sorttable_numeric">Total</th>
+                        <th class="sorttable_numeric">Average</th>
+                    </tr>
+                    <tr id="jt"></tr>
                 </table>
             </div>
-        </div>
+            <div class = "table">
+                <table id = "jimmy_total_last">
+                  <tr id="jtl">
+                      <td width = 20%>Jimmy's Team</td>
+                  </tr>
+                </table>
+            </div>
+            <div class="title">
+                <h3 id = 'jimmy'> Top Players </h3>
+            </div>
+            <div class = "table">
+                <table id = "topplayers">
+                    <tr>
+                        <th width = "20%">Name</th>
+                        <th class="sorttable_numeric">Games</th>    
+                        <th class="sorttable_numeric">Total</th>
+                        <th class="sorttable_numeric">Average</th>
+                    </tr>
+                </table>
+            </div>
+        </div>     
     </body>
 </html>
